@@ -1562,10 +1562,10 @@ fn add_default_export_name(
                 component_names.insert("default".to_string());
             }
         }
-        ExportDefaultDeclarationKind::Identifier(identifier) => {
-            if local_component_names.contains(identifier.name.as_str()) {
-                component_names.insert("default".to_string());
-            }
+        ExportDefaultDeclarationKind::Identifier(identifier)
+            if local_component_names.contains(identifier.name.as_str()) =>
+        {
+            component_names.insert("default".to_string());
         }
         ExportDefaultDeclarationKind::ArrowFunctionExpression(_)
         | ExportDefaultDeclarationKind::FunctionExpression(_)
